@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ButtonRows">
+        <attr name="no_of_columns" format="integer" />
+        <attr name="no_of_rows" format="integer"/>
+    </declare-styleable>
+</resources>
+
