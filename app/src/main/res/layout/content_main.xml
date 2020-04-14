@@ -9,10 +9,15 @@
     tools:showIn="@layout/activity_main"
     android:orientation="vertical">
 
-  <com.example.linearbuttons.ButtonRows
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+    <com.example.linearbuttons.ButtonRows
+        android:id="@+id/rows"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:no_of_rows="9"
+        app:no_of_columns="9"
+        app:cell_view="@layout/cell_view">
 
-  </com.example.linearbuttons.ButtonRows>
+    </com.example.linearbuttons.ButtonRows>
 
 </LinearLayout>

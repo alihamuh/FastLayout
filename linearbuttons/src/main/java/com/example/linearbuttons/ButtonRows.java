@@ -6,33 +6,41 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
 
 public class ButtonRows extends LinearLayout {
 
     Context context;
-    Integer noOFRows;
-    Integer noOfColumns;
+    Integer noOfRows=1;
+    Integer noOfColumns=1;
+    Integer squareSize=0;
+    int cellId=0;
+    ArrayList<Attributes> attributesList=new ArrayList<>();
 
     public ButtonRows(Context context) {
         super(context);
         this.context=context;
+
         //createView(context);
     }
 
     public ButtonRows(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context=context;
+        init(attrs);
         //createView(context);
     }
 
     public ButtonRows(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context=context;
+        init(attrs);
 
         //createView(context);
     }
@@ -40,57 +48,103 @@ public class ButtonRows extends LinearLayout {
     public ButtonRows(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.context=context;
+        init(attrs);
+
         //createView(context);
     }
 
-    void createView(Context context){
-
-        setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams params= new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        setLayoutParams(params);
-
-        Button sampleButton=new Button(context);
-        sampleButton.setBackgroundColor(Color.RED);
-        sampleButton.setText("Muhammad Ali");
-        sampleButton.setTextColor(Color.WHITE);
-
-        Button sampleButton2=new Button(context);
-        sampleButton2.setBackgroundColor(Color.RED);
-        sampleButton2.setText("Sobia");
-        sampleButton2.setTextColor(Color.WHITE);
-
-
-        addView(sampleButton);
-        addView(sampleButton2);
-    }
-
-
     private void init(AttributeSet attrs){
-        TypedArray a=getContext().obtainStyledAttributes(attrs,R.styleable.ButtonRows);
-        //Use a
-        Log.i("test",""+a.getInteger(R.styleable.ButtonRows_no_of_columns,1));
-        Log.i("test",""+a.getInteger(R.styleable.ButtonRows_no_of_rows,1));
 
-        noOFRows=a.getInteger(R.styleable.ButtonRows_no_of_columns,1);
+        TypedArray a=getContext().obtainStyledAttributes(attrs,R.styleable.ButtonRows,0,0);
+
+
+        noOfRows =a.getInteger(R.styleable.ButtonRows_no_of_rows,1);
+
+
         noOfColumns=a.getInteger(R.styleable.ButtonRows_no_of_columns,1);
-        //Don't forget this
+
+
+        squareSize=a.getInteger(R.styleable.ButtonRows_square_size,0);
+
+
+        cellId=a.getResourceId(R.styleable.ButtonRows_cell_view,R.layout.default_view);
         a.recycle();
+
     }
 
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+
+        CheckAttributes check=new CheckAttributes();
+
+        if(check.isRowColumns(noOfRows,noOfColumns)){
+            SetRowColSquare rowColSquare=new SetRowColSquare();
+            rowColSquare.set(noOfRows,noOfColumns);
+            CreateView createView=new CreateView(rowColSquare);
+            createView.create(this);
+            return;
+        }
+
+        if(check.isSquare(squareSize)){
+            SetRowColSquare rowColSquare=new SetRowColSquare();
+            rowColSquare.set(squareSize);
+            CreateView createView=new CreateView(rowColSquare);
+            createView.create(this);
+            return;
+        }
+    }
 
     public void setNoOfColumns(Integer noOfColumns) {
         this.noOfColumns = noOfColumns;
+        invalidate();
+        requestLayout();
     }
 
     public Integer getNoOfColumns() {
         return noOfColumns;
     }
 
-    public void setNoOFRows(Integer noOFRows) {
-        this.noOFRows = noOFRows;
+    public void setNoOfRows(Integer noOfRows) {
+        this.noOfRows = noOfRows;
+        invalidate();
+        requestLayout();
+
+
     }
 
-    public Integer getNoOFRows() {
-        return noOFRows;
+    public Integer getNoOfRows() {
+        return noOfRows;
     }
+
+    public void setSquareSize(Integer squareSize) {
+        this.squareSize = squareSize;
+        invalidate();
+        requestLayout();
+    }
+
+    public Integer getSquareSize() {
+        return squareSize;
+    }
+
+    public void setCellId(int cellId) {
+        this.cellId = cellId;
+    }
+
+    public int getCellId() {
+
+        return cellId;
+    }
+
+    public void setAttributesList(ArrayList<Attributes> attributesList) {
+        this.attributesList = attributesList;
+        Log.d("test","attrs list is  "+attributesList);
+
+    }
+
+    public ArrayList<Attributes> getAttributesList() {
+        return attributesList;
+    }
+
 }

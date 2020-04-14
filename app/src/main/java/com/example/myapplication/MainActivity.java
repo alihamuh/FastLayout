@@ -1,18 +1,22 @@
 package com.example.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.linearbuttons.Main;
+import com.example.linearbuttons.Attributes;
+import com.example.linearbuttons.ButtonRows;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,13 +37,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Main main= new Main(this);
+        ButtonRows view= findViewById(R.id.rows);
 
 
-        //LinearLayout layout=findViewById(R.id.layout_1);
-        //layout.addView(main.getMainView());
+        ArrayList<Attributes> attributes=new ArrayList<>();
+        for(int index=0;index<81;index++){
+            Attributes attr=new Attributes();
+            attr.setButtonText(Integer.toString(index));
+            attr.setTextColor(Color.RED);
 
+            attributes.add(attr);
+        }
 
+        view.setAttributesList(attributes);
     }
 
     @Override

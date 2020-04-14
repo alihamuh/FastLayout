@@ -3,6 +3,8 @@
     <declare-styleable name="ButtonRows">
         <attr name="no_of_columns" format="integer" />
         <attr name="no_of_rows" format="integer"/>
+        <attr name="square_size" format="integer"/>
+        <attr name="cell_view" format="reference"/>
     </declare-styleable>
 </resources>
 
