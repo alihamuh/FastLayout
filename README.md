@@ -1,19 +1,30 @@
 # fastLayout
+
+[ ![Jitpack](https://api.bintray.com/packages/alihamuh/AndroidRepo/fastTableLayout/images/download.svg?version=1.0.0) ](https://bintray.com/alihamuh/AndroidRepo/fastTableLayout/1.0.0/link)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ](https://opensource.org/licenses/mit-license.php)
+
 A library for putting views in rows and columns
 
-Using jitpack:
+<h3>Setup:</h3>
 
-Step 1. Add it in your root build.gradle at the end of repositories:
+<h4>Gradle:</h4>
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-Step 2. Add the dependency
+Enter this in your build.gradle file:
+
+	implementation 'com.alihamuh.fastTableLayout:fastTableLayout:<latest-version>'
+
+and use the library.
+
+**Note: `<latest-version>` value can be found on the JitPack badge above the preview images.**
 
 
-dependencies {
-	        implementation 'com.github.alihamuh:fastLayout:2ec06db52e'
-	}
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+
+## Contributing
+
+Found a bug? feel free to fix it and send a pull request or [open an issue](https://github.com/alihamuh/fastLayout/issues).
+
