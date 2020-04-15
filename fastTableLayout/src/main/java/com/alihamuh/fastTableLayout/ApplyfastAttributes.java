@@ -7,12 +7,12 @@ import android.widget.TextView;
 
 public class ApplyfastAttributes {
 
-    public ApplyfastAttributes(){
+    ApplyfastAttributes(){
 
     }
 
 
-    void applyAttributesToView(View view, fastAttributes fastAttributes){
+    void applyAttributesToView(View view, FastAttributes fastAttributes){
 
         if(fastAttributes.getCustomView()!=null){
             view= fastAttributes.getCustomView();

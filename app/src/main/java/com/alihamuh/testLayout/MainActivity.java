@@ -1,19 +1,20 @@
-package com.alihamuh.myapplication;
+package com.alihamuh.testLayout;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
-import com.alihamuh.fastTableLayout.fastAttributes;
-import com.alihamuh.fastTableLayout.fastLayout;
+import com.alihamuh.fastTableLayout.FastAttributes;
+import com.alihamuh.fastTableLayout.FastLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -36,14 +37,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        fastLayout view= findViewById(R.id.rows);
+        FastLayout view= findViewById(R.id.rows);
 
 
-        ArrayList<fastAttributes> attributes=new ArrayList<>();
+        ArrayList<FastAttributes> attributes=new ArrayList<>();
         for(int index=0;index<81;index++){
-            fastAttributes attr=new fastAttributes();
+            FastAttributes attr=new FastAttributes();
+
             attr.setButtonText(Integer.toString(index));
-            attr.setTextColor(Color.RED);
+
+            View.OnClickListener onClickListener= new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Button button= (Button)v;
+
+                    Log.d("test","Number text is "+button.getText());
+
+                    int number=Integer.parseInt(button.getText().toString());
+                    int add=number+1;
+
+                    button.setText(""+add);
+
+                    //button.setText(Integer.parseInt(button.getText().toString())+1);
+                }
+            };
+
+            attr.setOnClickListener(onClickListener);
 
             attributes.add(attr);
         }
