@@ -1,17 +1,16 @@
-package com.example.myapplication;
+package com.alihamuh.myapplication;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.linearbuttons.Attributes;
-import com.example.linearbuttons.ButtonRows;
+import com.alihamuh.fastTableLayout.fastAttributes;
+import com.alihamuh.fastTableLayout.fastLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,19 +36,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ButtonRows view= findViewById(R.id.rows);
+        fastLayout view= findViewById(R.id.rows);
 
 
-        ArrayList<Attributes> attributes=new ArrayList<>();
+        ArrayList<fastAttributes> attributes=new ArrayList<>();
         for(int index=0;index<81;index++){
-            Attributes attr=new Attributes();
+            fastAttributes attr=new fastAttributes();
             attr.setButtonText(Integer.toString(index));
             attr.setTextColor(Color.RED);
 
             attributes.add(attr);
         }
 
-        view.setAttributesList(attributes);
+        view.setFastAttributesList(attributes);
     }
 
     @Override
