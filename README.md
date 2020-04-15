@@ -7,7 +7,7 @@ Enter this in your build.gradle file:
 
 and use the library.
 
-<h3>Using jitpack:<h3>
+<h3>Using jitpack:</h3>
 
 Step 1. Add it in your root build.gradle at the end of repositories:
 
