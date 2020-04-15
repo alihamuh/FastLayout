@@ -11,9 +11,11 @@ A library for putting views in rows and columns
 
 Enter this in your build.gradle file:
 
-	implementation 'com.alihamuh.fastTableLayout:fastTableLayout:1.0.0'
+	implementation 'com.alihamuh.fastTableLayout:fastTableLayout:<latest-version>'
 
 and use the library.
+
+**Note: `<latest-version>` value can be found on the JitPack badge above the preview images.**
 
 
 First Header | Second Header
