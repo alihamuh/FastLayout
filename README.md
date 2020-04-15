@@ -85,7 +85,7 @@ setFastAttributesList(java.util.ArrayList<FastAttributes> fastAttributesList) | 
 setNoOfRows(java.lang.Integer noOfRows)       | Sets no of rows for your cells 
 setSquareSize(java.lang.Integer squareSize)   | Sets a square view with equal no of rows and columns 
 	
-<h4> Class FastAttributes<h4>
+<h4> Class FastAttributes</h4>
 
 |Method          | Description      |
 |---------------- | -----------------|	
