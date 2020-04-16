@@ -1,4 +1,4 @@
-# fastLayout
+# FastLayout
 A library for putting views in rows and columns
 
 [ ![Download](https://api.bintray.com/packages/alihamuh/AndroidRepo/fastTableLayout/images/download.svg?version=1.1.0) ](https://bintray.com/alihamuh/AndroidRepo/fastTableLayout/1.1.0/link)
